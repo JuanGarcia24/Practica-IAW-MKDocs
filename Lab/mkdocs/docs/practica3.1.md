@@ -2,7 +2,7 @@
 
 ## Estructura de la Práctica
 
-![Estructura](./Imagenes/Estructura.png)
+![Estructura](../Imagenes/Img-3.1/Estructura.png)
 
 
 ## Objetivo de la Práctica
@@ -19,7 +19,7 @@ El objetivo de esta práctica es automatizar la instalación y configuración de
 >[!IMPORTANT]  
 >Tal y cómo hemos visto en las prácticas anteriores, hemos creado un dominio para nuestra página web, de forma que, esté asociada a la dirección IP de nuestra máquina, por lo que nos dirigimos a la página NO-IP y actualizamos la dirección IP, el nombre no se permite cambiar, por lo que en este caso solo cambiaremos la dirección IP.
 
-![Hostnames](./Imagenes/Hostnames.png)
+![Hostnames](../Imagenes/Img-3.1/Hostnames.png)
 
 
 ## Proceso de instalación y configuración de Moodle
@@ -30,7 +30,7 @@ El objetivo de esta práctica es automatizar la instalación y configuración de
 
 **Contenido del archivo:** 
    
-   ```bash
+```bash
 
     - name: Configuración del Servidor de Base de Datos (Backend)
   hosts: backend
@@ -94,7 +94,7 @@ El objetivo de esta práctica es automatizar la instalación y configuración de
         name: mysql
         state: restarted
 
-   ```
+```
 
 - **`install_lamp_frontend.yaml`:** El objetivo es configurar un servidor web Apache con PHP en una instancia EC2 de AWS, que actuará como capa frontend de la arquitectura de dos niveles para la instalación de Moodle.
 
@@ -219,7 +219,7 @@ El objetivo de esta práctica es automatizar la instalación y configuración de
         name: apache2
         state: restarted
 
-   ```
+```
 
    - **`deploy.yaml`:** Tiene como objetivo principal la instalación y configuración automática de Moodle en un servidor frontend utilizando Ansible. 
 
@@ -302,7 +302,7 @@ El objetivo de esta práctica es automatizar la instalación y configuración de
         state: restarted
 
 
-   ```
+```
 
 Y por último, configuraremos letsencrypt para que nuestra página web sea HTTPS.
 
@@ -351,44 +351,44 @@ Y por último, configuraremos letsencrypt para que nuestra página web sea HTTPS
 
 Explicado el motivo, el archivo 000-default.conf quedará de la siguiente manera:
 
-![Default](./Imagenes/Default.png)
+![Default](../Imagenes/Img-3.1/Default.png)
 
 >[!IMPORTANT]  
 >Cómo hemos podido observar anteriormente, tenemos una carpeta en nuestra estructura llamada "inventory", esta carpeta incluye las direcciones IPs de las máquinas a controlar (frontend y backend), usuario de ansible así cómo la clave a usar para la conexión con las mismas. Cabe recordar tras adjuntar al repo la clave, ejecutar el comando "chmod 400 vockey.pem" para que no de problemas la conexión y tenga los permisos necesarios
 
-![Inventario](./Imagenes/inventario.png)
+![Inventario](../Imagenes/Img-3.1/inventario.png)
 
 También tenemos un archivo llamado "main.yaml", dónde le especificamos a Ansible los archivos que deseamos ejecutar sobre los dispositivos a manejar.
 
-![Main](./Imagenes/main.png)
+![Main](../Imagenes/Img-3.1/main.png)
 
 
 
 ### Variables incluidas en el archivo ".envars"
 
-![Variables](./Imagenes/Variables.png)
+![Variables](../Imagenes/Img-3.1/Variables.png)
 
 
 ### Comprobaciones generales
 
 Una vez redactados los comandos útiles, probaremos la ejecución del script de modo que se ejecute sin errores.
 
-![Ejecución Install Backend](./Imagenes/Backend.png)
+![Ejecución Install Backend](../Imagenes/Img-3.1/Backend.png)
 
-![Ejecución Install Frontend](./Imagenes/Frontend.png)
+![Ejecución Install Frontend](../Imagenes/Img-3.1/Frontend.png)
 
-![Ejecución Deploy](./Imagenes/Deploy.png)
+![Ejecución Deploy](../Imagenes/Img-3.1/Deploy.png)
 
 
 Y para finalizar, ejecutaremos el archivo "setup letsencrypt"
 
-![Ejecución LetsEncrypt](./Imagenes/Letsencrypt.png)
+![Ejecución LetsEncrypt](../Imagenes/Img-3.1/Letsencrypt.png)
 
 
 ### Sitio Moodle
 
 Una vez ejecutado todos los scripts con éxito, introduciremos el nombre de nuestro dominio y cargará la página de nuestro sitio moodle funcionando
 
-![Moodle](./Imagenes/Moodle.png)
+![Moodle](../Imagenes/Img-3.1/Moodle.png)
 
-![Certificado](./Imagenes/Certificado.png)
+![Certificado](../Imagenes/Img-3.1/Certificado.png)

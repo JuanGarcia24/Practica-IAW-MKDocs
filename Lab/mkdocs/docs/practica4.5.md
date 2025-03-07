@@ -247,18 +247,18 @@ Tras documentar los comandos de creación, vamos a la prueba de la ejecución.
 
 >**Nota:** Al ser una salida larga, mostraremos captura del principio y del final de la ejecución.
 
-![Creación 1](../Img-4.5/Creación1.png)
+![Creación 1](../Imagenes/Img-4.5/Creación1.png)
 
-![Creación 2](../Img-4.5/Creación2.png)
+![Creación 2](../Imagenes/Img-4.5/Creación2.png)
 
 
 Ahora, nos dirigimos al panel de AWS y comprobamos que se han creado los recursos de forma correcta.
 
-![Instancias](../Img-4.5/Instancias.png)
+![Instancias](../Imagenes/Img-4.5/Instancias.png)
 
-![Grupos de Seguridad](../Img-4.5/Grupos.png)
+![Grupos de Seguridad](../Imagenes/Img-4.5/Grupos.png)
 
-![IPs](../Img-4.5/IPs.png)
+![IPs](../Imagenes/Img-4.5/IPs.png)
 
 
 Tras comprobar que se han creado correctamente las máquinas y demás, procederemos a su borrado. Para proceder con su borrado, lo realizaremos con el comando:
@@ -271,28 +271,28 @@ Este comando es el comando de borrado genérico de Terraform, dónde con la opci
 
 Explicado el comando, procedemos a su ejecución.
 
-![Borrado](../Img-4.5/Borrado.png)
+![Borrado](../Imagenes/Img-4.5/Borrado.png)
 
 
 
 ### Prueba de Funcionamiento
 
 
-![Borrando](../Img-4.5/Borrado.png)
+![Borrando](../Imagenes/Img-4.5/Borrado.png)
 
 
 Para comprobar de que las instancias se han borrado eficazmente, IPs elásticas y grupos de seguridad, nos dirigimos al panel de AWS:
 
-![Máquinas Borradas](../Img-4.5//Máquinas_Borradas.png)
+![Máquinas Borradas](../Imagenes/Img-4.5//Máquinas_Borradas.png)
 
 
 Procedemos a comprobar la elimninación de las IPs elásticas así cómo grupos de seguridad.
 
 
-![IPs elásticas](../Img-4.5/IPs_borradas)
+![IPs elásticas](../Imagenes/Img-4.5/IPs_borradas.png)
 
 
 Y por último, comprobamos el borrado efectivo de los grupos de seguridad.
 
 
-![IPs elásticas](../Img-4.5/Grupos_Borrados.png)
+![IPs elásticas](../Imagenes/Img-4.5/Grupos_Borrados.png)

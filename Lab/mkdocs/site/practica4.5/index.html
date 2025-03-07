@@ -1,0 +1,806 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../practica5.4/">
+      
+      
+        <link rel="next" href="../practica3.1/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Práctica 4.5 - IAW</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-iaw-45-terraform-en-aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="IAW" class="md-header__button md-logo" aria-label="IAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IAW
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica 4.5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="IAW" class="md-nav__button md-logo" aria-label="IAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IAW
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Principal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acerca de
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practica 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica5.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 5.4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica 4.5
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.5
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-nuestra-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de Nuestra InfraEstructura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de Nuestra InfraEstructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archivo-de-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo de variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivo-de-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo de salida
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prueba de Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-funcionamiento_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prueba de Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-nuestra-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de Nuestra InfraEstructura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de Nuestra InfraEstructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archivo-de-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo de variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivo-de-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo de salida
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prueba de Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-funcionamiento_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prueba de Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="practica-iaw-45-terraform-en-aws">Practica-IAW-4.5: Terraform en AWS</h1>
+<p>En esta práctica, crearemos nuestra Infraestructura creada en la práctica 1.11 con terraform en AWS, de forma que sea totalmente automatizada, englobando la creación de instancias, grupos de seguridad así cómo IPs elásticas, posteriormente, procederemos a su eliminación.</p>
+<h2 id="creacion-de-nuestra-infraestructura">Creación de Nuestra InfraEstructura</h2>
+<pre><code class="language-bash">
+    provider &quot;aws&quot; {
+    region = var.region
+    }
+
+    # Creamos el grupo de seguridad del frontend
+    resource &quot;aws_security_group&quot; &quot;frontend&quot; {
+    name        = var.SECURITY_GROUP_FRONTEND
+    description = &quot;Reglas para el frontend&quot;
+    }
+
+    # Creamos las reglas para el grupo de seguridad &quot;frontend-sg&quot;
+    resource &quot;aws_security_group_rule&quot; &quot;frontend_ingress&quot; {
+    count             = 5
+    security_group_id = aws_security_group.frontend.id
+    type              = &quot;ingress&quot;
+    from_port         = [22, 2049, 80, 443, 3306][count.index]
+    to_port           = [22, 2049, 80, 443, 3306][count.index]
+    protocol          = &quot;tcp&quot;
+    cidr_blocks       = [&quot;0.0.0.0/0&quot;]
+    }
+
+    # Creamos el grupo de seguridad del backend
+    resource &quot;aws_security_group&quot; &quot;backend&quot; {
+    name        = var.SECURITY_GROUP_BACKEND
+    description = &quot;Reglas para el backend&quot;
+    }
+
+    # Creamos las reglas para el grupo de seguridad &quot;backend-sg&quot;
+    resource &quot;aws_security_group_rule&quot; &quot;backend_ingress&quot; {
+    count             = 2
+    security_group_id = aws_security_group.backend.id
+    type              = &quot;ingress&quot;
+    from_port         = [22, 3306][count.index]
+    to_port           = [22, 3306][count.index]
+    protocol          = &quot;tcp&quot;
+    cidr_blocks       = [&quot;0.0.0.0/0&quot;]
+    }
+
+    # Creamos el grupo de seguridad del balanceador de carga
+    resource &quot;aws_security_group&quot; &quot;loadbalancer&quot; {
+    name        = var.SECURITY_GROUP_LOADBALANCER
+    description = &quot;Reglas para el balanceador de carga&quot;
+    }
+
+    # Creamos las reglas de entrada para el grupo de seguridad &quot;loadbalancer-sg&quot;
+    resource &quot;aws_security_group_rule&quot; &quot;loadbalancer_ingress&quot; {
+    count             = 5
+    security_group_id = aws_security_group.loadbalancer.id
+    type              = &quot;ingress&quot;
+    from_port         = [22, 3306, 80, 443, 2049][count.index]
+    to_port           = [22, 3306, 80, 443, 2049][count.index]
+    protocol          = &quot;tcp&quot;
+    cidr_blocks       = [&quot;0.0.0.0/0&quot;]
+    }
+
+    # Creamos el grupo de seguridad para el nfs server
+    resource &quot;aws_security_group&quot; &quot;nfs&quot; {
+    name        = var.SECURITY_GROUP_NFS
+    description = &quot;Reglas para el servidor NFS&quot;
+    }
+
+    # Creamos las reglas de entrada para el grupo de seguridad &quot;nfs-sg&quot;
+    resource &quot;aws_security_group_rule&quot; &quot;nfs_ingress&quot; {
+    count             = 2
+    security_group_id = aws_security_group.nfs.id
+    type              = &quot;ingress&quot;
+    from_port         = [22, 2049][count.index]
+    to_port           = [22, 2049][count.index]
+    protocol          = &quot;tcp&quot;
+    cidr_blocks       = [&quot;0.0.0.0/0&quot;]
+    }
+
+    # Creamos las instancias EC2 para los frontend 1 y frontend 2
+    resource &quot;aws_instance&quot; &quot;frontend&quot; {
+    count           = 2
+    ami             = var.ami_id
+    instance_type   = var.instance_type
+    key_name        = var.key_name
+    security_groups = [aws_security_group.frontend.name]
+
+    tags = {
+        Name = &quot;frontend-${count.index + 1}&quot;
+    }
+    }
+
+    # Creamos una instancia para el backend
+    resource &quot;aws_instance&quot; &quot;backend&quot; {
+    ami             = var.ami_id
+    instance_type   = var.instance_type
+    key_name        = var.key_name
+    security_groups = [aws_security_group.backend.name]
+
+    tags = {
+        Name = &quot;backend&quot;
+    }
+    }
+
+    # Creamos una instancia para el balanceador de carga
+    resource &quot;aws_instance&quot; &quot;loadbalancer&quot; {
+    ami             = var.ami_id
+    instance_type   = var.instance_type
+    key_name        = var.key_name
+    security_groups = [aws_security_group.loadbalancer.name]
+
+    tags = {
+        Name = &quot;loadbalancer&quot;
+    }
+    }
+
+    # Creamos una instancia para el NFS Server
+    resource &quot;aws_instance&quot; &quot;nfs&quot; {
+    ami             = var.ami_id
+    instance_type   = var.instance_type
+    key_name        = var.key_name
+    security_groups = [aws_security_group.nfs.name]
+
+    tags = {
+        Name = &quot;nfs&quot;
+    }
+    }
+
+    # Asociamos dos IPs elásticas a las máquinas frontend 1 y 2
+    resource &quot;aws_eip&quot; &quot;frontend&quot; {
+    count    = 2
+    instance = aws_instance.frontend[count.index].id
+    }
+
+    # Asociamos la IP elástica a la instancia backend
+    resource &quot;aws_eip&quot; &quot;backend&quot; {
+    instance = aws_instance.backend.id
+    }
+
+    # Asociamos la IP elástica a la instancia loadbalancer
+    resource &quot;aws_eip&quot; &quot;loadbalancer&quot; {
+    instance = aws_instance.loadbalancer.id
+    }
+
+    # Asignamos la IP elástica a la instancia NFS Server
+    resource &quot;aws_eip&quot; &quot;nfs&quot; {
+    instance = aws_instance.nfs.id
+    }
+
+
+</code></pre>
+<h3 id="archivo-de-variables">Archivo de variables</h3>
+<p>En este archivo, definiremos los valores de las variables del script de automatización</p>
+<pre><code class="language-bash">
+    variable &quot;region&quot; {
+    description = &quot;Región de AWS donde creamos la instancia&quot;
+    type        = string
+    default     = &quot;us-east-1&quot;
+    }
+
+    variable &quot;allowed_ingress_ports&quot; {
+    description = &quot;Puertos de entrada del grupo de seguridad&quot;
+    type        = list(number)
+    default     = [22, 80, 443]
+    }
+
+    variable &quot;ami_id&quot; {
+    description = &quot;Identificador de la AMI&quot;
+    type        = string
+    default     = &quot;ami-00874d747dde814fa&quot;
+    }
+
+    variable &quot;instance_type&quot; {
+    description = &quot;Tipo de instancia&quot;
+    type        = string
+    default     = &quot;t2.small&quot;
+    }
+
+    variable &quot;key_name&quot; {
+    description = &quot;Nombre de la clave pública&quot;
+    type        = string
+    default     = &quot;vockey&quot;
+    }
+
+    variable &quot;SECURITY_GROUP_FRONTEND&quot; {
+    description = &quot;Nombre del grupo de seguridad para el frontend&quot;
+    type        = string
+    default     = &quot;sg_frontend&quot; 
+    }
+
+    variable &quot;SECURITY_GROUP_BACKEND&quot; {
+    description = &quot;Nombre del grupo de seguridad para el backend&quot;
+    type        = string
+    default     = &quot;sg_backend&quot;
+    }
+
+    variable &quot;SECURITY_GROUP_LOADBALANCER&quot; {
+    description = &quot;Nombre del grupo de seguridad para el balanceador de carga&quot;
+    type        = string
+    default     = &quot;sg_loadbalancer&quot;
+    }
+
+    variable &quot;SECURITY_GROUP_NFS&quot; {
+    description = &quot;Nombre del grupo de seguridad para el servidor NFS&quot;
+    type        = string
+    default     = &quot;sg_nfs&quot;
+    }
+
+</code></pre>
+<h3 id="archivo-de-salida">Archivo de salida</h3>
+<p>Este archivo servirá para definir y mostrar los valores de salida desopués de que la InfraEstructura se haya creado.</p>
+<pre><code class="language-bash">
+    # Mostramos las IPs elásticas de las instancias frontend
+    output &quot;frontend_elastic_ips&quot; {
+    value = [for i in aws_eip.frontend : i.public_ip]
+    }
+
+    # Mostramos la IP elástica del backend
+    output &quot;backend_elastic_ip&quot; {
+    value = aws_eip.backend.public_ip
+    }
+
+    # Mostramos la IP elástica del loadbalancer
+    output &quot;loadbalancer_elastic_ip&quot; {
+    value = aws_eip.loadbalancer.public_ip
+    }
+
+    # Mostramos la IP elástica del NFS_Server
+    output &quot;nfs_elastic_ip&quot; {
+    value = aws_eip.nfs.public_ip
+    }
+
+</code></pre>
+<h3 id="prueba-de-funcionamiento">Prueba de Funcionamiento</h3>
+<p>Tras documentar los comandos de creación, vamos a la prueba de la ejecución.</p>
+<blockquote>
+<p><strong>Nota:</strong> Al ser una salida larga, mostraremos captura del principio y del final de la ejecución.</p>
+</blockquote>
+<p><img alt="Creación 1" src="../Imagenes/Img-4.5/Creación1.png" /></p>
+<p><img alt="Creación 2" src="../Imagenes/Img-4.5/Creación2.png" /></p>
+<p>Ahora, nos dirigimos al panel de AWS y comprobamos que se han creado los recursos de forma correcta.</p>
+<p><img alt="Instancias" src="../Imagenes/Img-4.5/Instancias.png" /></p>
+<p><img alt="Grupos de Seguridad" src="../Imagenes/Img-4.5/Grupos.png" /></p>
+<p><img alt="IPs" src="../Imagenes/Img-4.5/IPs.png" /></p>
+<p>Tras comprobar que se han creado correctamente las máquinas y demás, procederemos a su borrado. Para proceder con su borrado, lo realizaremos con el comando:</p>
+<pre><code class="language-bash">terraform destroy -auto-approve
+</code></pre>
+<p>Este comando es el comando de borrado genérico de Terraform, dónde con la opción "-auto-approve", le indicamos que todos los mensajes de confirmación, sean aceptados automáticamente.</p>
+<p>Explicado el comando, procedemos a su ejecución.</p>
+<p><img alt="Borrado" src="../Imagenes/Img-4.5/Borrado.png" /></p>
+<h3 id="prueba-de-funcionamiento_1">Prueba de Funcionamiento</h3>
+<p><img alt="Borrando" src="../Imagenes/Img-4.5/Borrado.png" /></p>
+<p>Para comprobar de que las instancias se han borrado eficazmente, IPs elásticas y grupos de seguridad, nos dirigimos al panel de AWS:</p>
+<p><img alt="Máquinas Borradas" src="../Imagenes/Img-4.5//Máquinas_Borradas.png" /></p>
+<p>Procedemos a comprobar la elimninación de las IPs elásticas así cómo grupos de seguridad.</p>
+<p><img alt="IPs elásticas" src="../Imagenes/Img-4.5/IPs_borradas.png" /></p>
+<p>Y por último, comprobamos el borrado efectivo de los grupos de seguridad.</p>
+<p><img alt="IPs elásticas" src="../Imagenes/Img-4.5/Grupos_Borrados.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

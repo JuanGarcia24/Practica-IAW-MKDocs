@@ -7,7 +7,7 @@ El objetivo de la práctica será crear un archivo "DockerFile" con Nginx para g
 
 ## Estructura de la Práctica
 
-![Estructura](./Imagenes/Estructura.png)
+![Estructura](../Imagenes/Img-5.4/Estructura.png)
 
 
 ## Desarrollo de la práctica 
@@ -18,7 +18,7 @@ El objetivo de la práctica será crear un archivo "DockerFile" con Nginx para g
 
 **Contenido del archivo:** 
    
-   ```bash
+```bash
         FROM nginx:latest
 
         LABEL AUTHOR="JUAN"
@@ -55,7 +55,7 @@ Tras explicar la función del primer archivo, explicaremos la función del archi
 - **`publish-to-docker-hub.yml`:** Este archivo es un workflow de Github Actions que automatiza la construcción y publicación de una imagen Docker Hub cada cez que se realiza un push a la rama main.
 
 
-    ```bash
+```bash
         name: Publish image to Docker Hub
 
     # This workflow uses actions that are not certified by GitHub.
@@ -124,7 +124,7 @@ Tras explicar la función del primer archivo, explicaremos la función del archi
             tags: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
             cache-from: type=gha
             cache-to: type=gha,mode=max          
-    ```
+```
 
 En primer lugar, definiremos el nombre del workflow cómo "Publish image to Docker Hub", este nombre será visible en la pestaña "Actions" de Github.
 
@@ -154,9 +154,9 @@ Por último lugar, construiremos y subiremos la imagen a Docker Hub.
 Tras explicar todas las líneas del archivo, visualizaremos el Token Creado de DockerHub para posteriormente visualizarlo en Github Actions Secret.
 
 
-![Github_Actions](./Imagenes/Github_Actions.png)
+![Github_Actions](../Imagenes/Img-5.4/Github_Actions.png)
 
-![Docker Hub](./Imagenes/Token_DockerHUB.png)
+![Docker Hub](../Imagenes/Img-5.4/Token_DockerHUB.png)
 
 
 
@@ -172,36 +172,36 @@ Ahora, con el comando docker tag juangarcia24/2048 juangarcia24/2048:1.0" le añ
 
 Acto seguido, con el comando "docker-compose" lanzaremos el docker.
 
-![Docker Compose](./Imagenes/docker-compose.png)
+![Docker Compose](../Imagenes/Img-5.4/docker-compose.png)
 
 
 En siguiente lugar, para comprobar que la imagen se ha creado correctamente ejecutaremos el comando "docker images" para listar las imagenes guardadas en nuestro sistema.
 
 
-![Images](./Imagenes/images.png)
+![Images](../Imagenes/Img-5.4/images.png)
 
 
 Realizado lo anterior, tendremos que iniciar sesión con el usuario y contraseña de DockerHub con el comando "docker login -u juangarcia24". Pedirá la introducción de una contrseña, en este caso, la contraseña a introducir será el token de DockerHub creado anteriormente.
 
 
-![Actions de GitHub](./Imagenes/Actions.png)
+![Actions de GitHub](../Imagenes/Img-5.4/Actions.png)
 
 
 En siguiente lugar, procedemos a realizar un push para poder publicar la imagen, lo realizaremos con las dos etiquetas creadas:
 
 
-![Push](./Imagenes/push.png)
+![Push](../Imagenes/Img-5.4/push.png)
 
 
 
 Si pulsamos sobre los detalles del commit, figura que se ha publicado correctamente en Docker Hub.
 
-![Detalle de Commit](./Imagenes/Detalles.png)
+![Detalle de Commit](../Imagenes/Img-5.4/Detalles.png)
 
 
 Por último, probaremos a dirigirnos a la página de Docker Hub para comprobar la existencia de nuestra imagen creada y sincronizada.
 
-![Repositorio Docker Hub](./Imagenes/DockerHubSincronizado.png)
+![Repositorio Docker Hub](../Imagenes/Img-5.4/DockerHubSincronizado.png)
 
 
 ### Comprobación de funcionamiento
@@ -212,10 +212,10 @@ Llegados a este punto de la práctica, comprobaremos que se ha implantado correc
     docker run -d -p 80:80 2048
 ```
 
-![Docker Run](./Imagenes/docker_run.png)
+![Docker Run](./Imagenes/Img-5.4/docker_run.png)
 
 
 Ahora, introducimos en nuestro navegador la IP elástica de la máquina y comprobamos que carga la aplicación Web.
 
 
-![2048](./Imagenes/2048.png)
+![2048](./Imagenes/Img-5.4/2048.png)
