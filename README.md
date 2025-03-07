@@ -9,10 +9,58 @@
 
 El objetivo de esta práctica es aprender a crear, personalizar y desplegar un sitio web utilizando MkDocs y el theme "Material for MkDocs". Para ello, se utilizarán herramientas como Docker para la ejecución del entorno, y GitHub Pages para la publicación del sitio web.
 
-Además, se implementará un flujo de integración y despliegue continuo (CI/CD) con GitHub Actions, permitiendo que la documentación se actualice automáticamente con cada cambio en el repositorio.
+Además, llevaremos a cabo el proceso de integración y despliegue continuo (CI/CD) con GitHub Actions, permitiendo que la documentación se actualice automáticamente con cada cambio en el repositorio.
 
 
 ## Desarrollo de la práctica 
+
+En primer lugar, crearemos nuestro proyecto con MKDocs y el tema Material usando Docker (Asegurándonos de tener Docker instalado en nuestro sistema). 
+
+
+![Creación de Proyecto](./Imagenes/Creacion_Proyecto.png)
+
+
+Realizado lo anterior, configuraremos el archivo "mkdocs.yml" para personalizar a nuestro gusto el nombre del sitio, el tema...
+
+
+- **`mkdocs.yml`:** En este archivo se guardará la configuración principal de un proyecto MkDocs. Su función es definir cómo se estructurará y personalizará el sitio web de la documentación generada.
+
+
+
+```bash
+
+    site_name: IAW
+
+    nav:
+        - Principal: index.md
+        - Acerca de: about.md
+        - Practica 1: practica1.md
+        - Práctica 5.4: practica5.4.md
+        - Práctica 4.5: practica4.5.md
+        - Práctica 3.1: practica3.1.md
+
+    theme: material
+
+```
+
+
+Ahora, iniciaremos el servidor, esto nos servirá para poder visualizar el sitio a través del navegador.
+
+![Creación de Proyecto](./Imagenes/iniciar_servidor.png)
+
+
+Para comprobar el resultado, abriremos nuestro navegador y introducimos la IP de la máquina dónde estemos realizando la práctica y al final introducimos :8000.
+
+
+![Sitio Funcionando](./Imagenes/sitio_funcionando.png)
+
+
+En siguiente lugar, generaremos la documentación de nuestro sitio web de forma que no haga falta tener que iniciar el servidor local de desarrollo. 
+
+![Archivos Estáticos](./Imagenes/sitio_estático.png)
+
+
+
 
 
 - **`build-push-mkdocs.yml`:** Este archivo configuramos el workflow de GitHub Actions. Cuyo propósito es automatizar la publicación de la documentación creada con MKDocs en GitHub Pages cada vez que realizamos un push en la rama "main".
@@ -20,7 +68,7 @@ Además, se implementará un flujo de integración y despliegue continuo (CI/CD)
 
 **Contenido del archivo:** 
    
-   ```bash
+```bash
 
     name: build-push-mkdocs
 
@@ -70,45 +118,12 @@ jobs:
    ```
 
 
-Dado el contenido del archivo entero iremos desglosándo poco a poco explicando la función de cada bloque de comandos.
-
-![Wordpress](./Imagenes/Wordpress.png)
-
-
-
-
-![MySQL](./Imagenes/MySQL.png)
-
-En primer bloque, declaramos que el servicio va a ser llamado "mysql", le especificaremos la imagen de MySQL, que en este caso será la versión 8.0 de Docker Hub.
-
-
-
-
-![PHPMyAdmin](./Imagenes/PHPMyAdmin.png)
-
-En este caso, definiremos el servicio phpmyadmin, dónde le especificamos la imagen de phpmyadmin, le indicaremos los puertos de forma que en el host (navegador) su puerto sea el 8080, pero dentro del contenedor su puerto sea el 80.
-
-
-
-
-
-![Portal HTTPS](./Imagenes/HTTPS-PORTAL.png)
-
-Cómo es de esperar, declaramos el servicio https-portal actuándo cómo servidor proxy inverso con soporte HTTPS.
-
-
 
 En último lugar del archivo, indicaremos los volúmenes para la persistencia de datos y le indicaremos las redes, que cómo hemos mencionado anteriormente, hemos definido la red frontend y backend.
 
 ![Volumenes y redes](./Imagenes/volumenes_n.png)
 
 
-Tras explicar la función del archivo, seguimos con el desarrollo de la práctica.
-
-
-### Variables incluidas en el archivo ".env"
-
-![Variables](./Imagenes/Variables.png)
 
 
 ### Comprobaciones generales
