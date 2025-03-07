@@ -49,21 +49,34 @@ Ahora, iniciaremos el servidor, esto nos servirá para poder visualizar el sitio
 ![Creación de Proyecto](./Imagenes/iniciar_servidor.png)
 
 
-Para comprobar el resultado, abriremos nuestro navegador y introducimos la IP de la máquina dónde estemos realizando la práctica y al final introducimos :8000.
 
+Para comprobar el resultado, abriremos nuestro navegador y introducimos la IP de la máquina dónde estemos realizando la práctica y al final introducimos :8000.
 
 ![Sitio Funcionando](./Imagenes/sitio_funcionando.png)
 
 
-En siguiente lugar, generaremos la documentación de nuestro sitio web de forma que no haga falta tener que iniciar el servidor local de desarrollo. 
+
+En siguiente lugar, generaremos la documentación de nuestro sitio web de forma que no haga falta tener que iniciar el servidor local de desarrollo. Creará un directorio llamado "site" con el sitio web generado.
 
 ![Archivos Estáticos](./Imagenes/sitio_estático.png)
 
 
 
+Por último, publicaremos el sitio web en GitHub Pages, publicándose en la rama "gh-pages".
 
 
-- **`build-push-mkdocs.yml`:** Este archivo configuramos el workflow de GitHub Actions. Cuyo propósito es automatizar la publicación de la documentación creada con MKDocs en GitHub Pages cada vez que realizamos un push en la rama "main".
+![Publicar en GitHub Pages](./Imagenes/publicar_githubpages.png)
+
+
+
+Nos aseguraremos tras realizar este paso, de tener configurados los permisos de WorkFlow marcados en la sección "Reaad and write permissions". Para dirigirnos a este apartado, habrá que situarse sobre las opciones del repositorio de la práctica y desplegamos la sección "Actions".
+
+![Ajuste de WorkFlow](./Imagenes/Workflow.png)
+
+
+
+
+- **`build-push-mkdocs.yml`:** En este archivo configuramos el workflow de GitHub Actions. Cuyo propósito es automatizar la publicación de la documentación creada con MKDocs en GitHub Pages cada vez que realizamos un push en la rama "main".
 
 
 **Contenido del archivo:** 
@@ -118,22 +131,13 @@ jobs:
    ```
 
 
-
-En último lugar del archivo, indicaremos los volúmenes para la persistencia de datos y le indicaremos las redes, que cómo hemos mencionado anteriormente, hemos definido la red frontend y backend.
-
-![Volumenes y redes](./Imagenes/volumenes_n.png)
-
-
-
-
 ### Comprobaciones generales
 
-Una vez redactados los comandos útiles, probaremos la ejecución del script a modo que se ejecute sin errores.
+Una vez redactados los comandos útiles, probaremos el resultado de la publicación del sitio en GitHub Pages.
 
-![Ejecución Docker Compose](./Imagenes/Docker.png)
-
-
-Tras ejecutar el script, nos dirigimos a la página de nuestro dominio y cómo podemos observar cargará nuestro sitio de Wordpress. Si nos fijamos, cargan correctamente los datos ya qué cómo "Título del Sitio" un nombre personalizado y tras implementarlo, podemos ver que el nombre figura correctamente.
+![Publicación en Github Pages](./Imagenes/GitHub_Pages.png)
 
 
-![Sitio Página de Wordpress](./Imagenes/Sitio.png)
+También nos dirigiremos a GitHub, y en la sección "Actions" nos mostrará un resumen de la ejecución del WorkFlow, dónde indica que se ejecutó correctamente. 
+
+https://juangarcia24.github.io/Practica-IAW-MKDocs/
